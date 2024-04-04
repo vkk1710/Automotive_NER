@@ -1,0 +1,30 @@
+{
+  "base_model": "microsoft/phi-2",
+  "base_model_attn_implementation": "flash_attention_2",
+  "hf_access_token": "",
+  "hf_username": "vkk1710",
+  "bnb_config": {
+    "load_in_4bit": true,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_compute_dtype": "float16",
+    "bnb_4bit_use_double_quant": true
+  },
+  "tokenizer_config": {
+    "truncation_side": "left",
+    "max_length": 1024
+  },
+  "lora_config": {
+    "r": 16,
+    "lora_alpha": 32,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "dense", "fc1", "fc2"],
+    "bias": "none",
+    "lora_dropout": 0.05,
+    "task_type": "CAUSAL_LM"
+  },
+  "device_map": "auto",
+  "train_data_path": "./data/gpt_gen_data.csv",
+  "new_model_name": "phi2-AutoNER",
+  "train_test_split": 0.1,
+  "push_to_hub": true,
+  "training_args_json": "./configs/training_args.json"
+}
