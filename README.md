@@ -35,6 +35,8 @@ python data_gen.py
 This will save the data in data/gpt_gen_data.csv. You can change the name of the csv file in data_gen.py.
 
 ## Fine-tuning
+We fine-tune using the Low-Rank Adaptation (LoRA) technique to get better performance with optimized memory utilization on A100 Nvidia GPU. We use flash attention which requires GPUs that are based on the Ampere architecture.
+
 Fine-tune the Microsoft Phi-2 model by running train.py. Before running this train.py, set the training configs in configs/config.json.
 
 ```
